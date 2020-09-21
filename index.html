@@ -2,9 +2,234 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <style>
+        .fix {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .grid-mergin-cells {
+            display: grid;
+
+            grid-template:
+                "cell1 cell1 cell2" 100px
+                "cell3 cell4 cell2" 50px
+                "cell5 cell4 cell6" 200px
+                "cell5 cell7 cell6" 60px / 500px 200px 500px;
+
+            grid-gap: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Css workshop</h1>
+<h1>Css workshop</h1>
+
+<h2>Devtools</h2>
+<div>Css style-ok</div>
+<div>https://caniuse.com/</div>
+
+<h1>FLEXBOX</h1>
+
+<h2>Inline block vs block</h2>
+<section>
+    <div class="fix" style="display: inline-block; background: red; margin: 5px;">inline block</div>
+    <div class="fix" style="display: inline-block; background: red; margin: 5px;">inline block</div>
+    <div class="fix" style="display: block; background: red; margin: 5px;">block</div>
+    <div class="fix" style="display: inline-block; background: red; margin: 5px;">inline block</div>
+</section>
+
+<h2>How the flex flows</h2>
+<section>
+    <div style="display: flex; flex-flow: row;">
+        <div class="fix" style="background: red; margin: 5px;">1</div>
+        <div class="fix" style="background: red; margin: 5px;">2</div>
+        <div class="fix" style="background: red; margin: 5px;">3</div>
+        <div class="fix" style="background: red; margin: 5px;">4</div>
+    </div>
+</section>
+
+<h2>Flex wrapping</h2>
+<section>
+    <div>Without wrapping</div>
+    <div style="display: flex; flex-flow: row;">
+        <div class="fix" style="background: red; margin: 5px; width: 250px;">1</div>
+        <div class="fix" style="background: red; margin: 5px; width: 370px">2</div>
+        <div class="fix" style="background: red; margin: 5px; width: 150px;">3</div>
+        <div class="fix" style="background: red; margin: 5px; width: 400px;">4</div>
+    </div>
+
+    <div>With wrapping</div>
+    <div style="display: flex; flex-flow: row; flex-wrap: wrap;">
+        <div class="fix" style="background: red; margin: 5px; width: 250px;">1</div>
+        <div class="fix" style="background: red; margin: 5px; width: 370px">2</div>
+        <div class="fix" style="background: red; margin: 5px; width: 150px;">3</div>
+        <div class="fix" style="background: red; margin: 5px; width: 400px;">4</div>
+    </div>
+</section>
+
+
+<h2>Place of the axis (in the flow's direction vs the other)</h2>
+
+<section>
+    <div>In horizontal flow</div>
+    <div style="background: yellowgreen; display: flex; flex-flow: row; align-items: flex-end; justify-content: space-around;">
+        <div class="fix" style="background: red; height: 150px; margin: 5px;">1</div>
+        <div class="fix" style="background: red; margin: 5px;">2</div>
+        <div class="fix" style="background: red; height: 210px; margin: 5px;">3</div>
+        <div class="fix" style="background: red; margin: 5px;">4</div>
+    </div>
+
+
+    <div>In vertical flow</div>
+    <div style="background: yellowgreen; display: flex; flex-flow: column; align-items: flex-end; justify-content: space-around; width: 500px; height: 800px;">
+        <div class="fix" style="background: red; height: 150px; margin: 5px;">1</div>
+        <div class="fix" style="background: red; margin: 5px;">2</div>
+        <div class="fix" style="background: red; height: 210px; margin: 5px;">3</div>
+        <div class="fix" style="background: red; margin: 5px;">4</div>
+    </div>
+</section>
+
+
+
+<h2>Shrink and grow stuff</h2>
+<section>
+    <div>How to make flex items wider when scaling the screen?</div>
+    <div style="display: flex; flex-flow: row;">
+        <div class="fix" style="background: red; margin: 5px;">1</div>
+        <div class="fix" style="background: red; margin: 5px; flex-grow: 1">2</div>
+        <div class="fix" style="background: red; margin: 5px;">3</div>
+        <div class="fix" style="background: red; margin: 5px;">4</div>
+    </div>
+
+    <div>Why flex items shrink by default?</div>
+
+    <div style="display: flex; flex-flow: row;">
+        <div class="fix" style="background: red; margin: 5px; flex-shrink: 1">1</div>
+        <div class="fix" style="background: red; margin: 5px; flex-shrink: 2">2</div>
+        <div class="fix" style="background: red; margin: 5px; flex-shrink: 0">3</div>
+        <div class="fix" style="background: red; margin: 5px; flex-shrink: 0; flex-grow: 1">4</div>
+    </div>
+</section>
+
+
+<h2>A previous problem we had: logisticsMain.xhtml's drag n drop</h2>
+
+<section>
+    <div style="display: flex;">
+        <div id="transfers" style="background: yellowgreen;display: flex;flex-flow: column;">
+            <div class="fix" style="background: red;margin: 5px;">Placeholder</div>
+            <div style="background: red;margin: 5px;flex-grow: 1;">Empty droppable space</div>
+        </div>
+        <div id="orders" style="background: yellowgreen;">
+            <div class="fix" style="background: red;margin: 5px;">Placeholder</div>
+            <div class="fix" style="background: red;margin: 5px;">Placeholder</div>
+            <div class="fix" style="background: red;margin: 5px;">Placeholder</div>
+            <div class="fix" style="background: red;margin: 5px;">Placeholder</div>
+        </div>
+    </div>
+</section>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h1>GRID</h1>
+
+<h2>Definition of column template</h2>
+<section>
+    <div style="display: grid;grid-template-columns: auto 1fr auto auto; grid-gap: 5px;">
+        <div class="fix" style="background: red;">1</div>
+        <div class="fix" style="background: red; width: 100%;">2</div>
+        <div class="fix" style="background: red;">3</div>
+        <div class="fix" style="background: red;">4</div>
+        <div class="fix" style="background: red;">1</div>
+        <div class="fix" style="background: red; width: 100%;">2</div>
+        <div class="fix" style="background: red;">3</div>
+        <div class="fix" style="background: red;">4</div>
+    </div>
+</section>
+
+<h2>Definition of row template</h2>
+<section>
+    <div style="display: grid; grid-auto-flow: column; grid-template-rows: auto 1fr; grid-gap: 5px;">
+        <div class="fix" style="background: red;">1</div>
+        <div class="fix" style="background: red; width: 100%;">2</div>
+        <div class="fix" style="background: red;">3</div>
+        <div class="fix" style="background: red;">4</div>
+    </div>
+</section>
+
+
+<h2>Mergin cells</h2>
+
+<section>
+    <div class="grid-mergin-cells">
+        <div style="grid-area: cell1;background: red; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="grid-area: cell2;background: red; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="grid-area: cell3;background: red; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="grid-area: cell4;background: red; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="grid-area: cell5;background: red; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="grid-area: cell6;background: red; display: flex; align-items: center; justify-content: center;">6</div>
+        <div style="grid-area: cell7;background: red; display: flex; align-items: center; justify-content: center;">7</div>
+    </div>
+</section>
+
+
+<h2>What cannot be done with flexbox</h2>
+
+<section>
+    <div style="display: grid;grid-gap: 5px;grid-template-rows: auto auto auto;grid-template-columns: auto auto auto;">
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">
+            <div style="height: 150px; background: yellowgreen">Hight content</div>
+        </div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">6</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">7</div>
+    </div>
+</section>
+
+
+<h2>Grid flow</h2>
+
+<section>
+    <div>auto-fill</div>
+    <div style="display: grid;grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); grid-gap: 5px; grid-template-rows: 1fr;">
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">6</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">7</div>
+    </div>
+
+    <div>auto-fit</div>
+    <div style="display: grid;grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); grid-gap: 5px; grid-template-rows: 1fr;">
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">6</div>
+        <div style="background: red; display: flex; align-items: center; justify-content: center;">7</div>
+    </div>
+</section>
+
+
 </body>
 </html>
